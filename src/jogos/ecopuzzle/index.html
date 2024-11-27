@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+  <title>Memory Game</title>
+</head>
+
+<body>
+  <div class="game-container">
+
+    <div id="blur-overlay"></div>
+    <div id="help-dialog">
+      <p style="padding: 24px;">Combine cada lixeira com o tipo de lixo correspondente para ganhar o jogo! Siga os passos abaixo:</p>
+      <ul id="how-to-play-list">
+        <strong>1. Escolha duas cartas:</strong> Clique (caso esteja no celular, toque) em uma carta e em seguida em outra para selecioná-las.
+        <br>
+        <br>
+        <strong>2. Combine as cartas:</strong> Combine o item selecionado com sua lixeira respectiva ao resíduo (no celular, toque e combine).
+        <br>
+        <br>
+        <strong>3. Verifique a combinação:</strong> Ao acertar, o item ficará selecionado em tela, conforme o gif abaixo.
+        <br>
+        <br>
+        <strong>4. Complete o jogo:</strong> Combine todos os resíduos com sua respectiva lixeira corretamente para vencer!
+      </ul>
+      <div class="instruction-gif-container">
+        <img src="../../img/gif/ecopuzzle.gif" alt="Instruções de como jogar EcoPuzzle" class="instruction-gif">
+      </div>
+      <button class="btn-primary" id="start-game-button" onclick="startGame()">Jogar Agora</button>
+    </div>
+
+    <div id="gameBoard"></div>
+
+    <div class="record-container">
+      <div class="tempo">
+        <div>Tempo: </div>
+        <div id="time">00:00</div>
+      </div>
+    </div>
+  </div>
+
+  <button id="fullscreen-btn"><i id="fullscreen-icon" class="fas fa-expand"></i></button>
+
+  <div id="gameOver">
+    <div id="game-result-container">
+      <h2>Parabéns! Você combinou todas as cartas!</h2>
+      <p>Tempo Total: <span id="resultado"></span></p>
+      <div class="btn-menu-container">
+        <button class="btn btn-primary" onclick="restart()">Jogar Novamente</button>
+        <a onclick="goToHome()" class="no-play-again">Voltar ao menu</a>
+      </div>
+    </div>
+  </div>
+
+  <audio src="./sound/card-start.mp3" preload="auto" id="card-start"></audio>
+  <audio src="./sound/card-click.mp3" preload="auto" id="card-click"></audio>
+  <audio src="./sound/card-check.mp3" preload="auto" id="card-check"></audio>
+  <audio src="./sound/card-win.mp3" preload="auto" id="card-win"></audio>
+  
+  <script src="./js/game.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>
